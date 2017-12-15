@@ -58,7 +58,7 @@ Build is setup using gulp. Following steps to be executed in `neighborhood-map-g
 > `gulp default`
 
 
-Go to `localhost:3000`
+Go to `localhost:3000` in google chrome web browser
 
 ## Tools used
 

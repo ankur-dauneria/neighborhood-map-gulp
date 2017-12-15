@@ -12,10 +12,6 @@
 
 > Neighborhood Map Application is fully responsive single page Javascript application built over MVVM model using Knockout.JS library. The front-end was built using HTML, CSS and Bootstrap 3 framework. It incorporates a variety of data using Wikipedia API to display additional information like photos, heritage site status about the location, on the google map. Different locations are read from user provided JSON and displayed over the map. It uses Ajax to handle wikipedia/wikidata APIs to get the data to be displayed on the map. On UI, it filters the locations as user types them and displays accordingly on the map. A location infowindow can be clicked directly from marker or from list view.
 
-## Preview
-
-<img src="static/img/www.gif" height="400"/>
-
 ## Features
 
 > Its fully responsive (NEXUS 5, iPad) single page JS application built using knockout.js
@@ -38,8 +34,8 @@
 This full stack project can be started using
 
 ```
-    git clone <repository>
-    cd <repository>
+    git clone https://github.com/ankur-dauneria/neighborhood-map-gulp.git
+    cd neighborhood-map-gulp
 ```
 
 ## Tools used

@@ -28,6 +28,10 @@
 
 > Google map uses a custom style
 
+## Preview
+
+<img src="preview_nm.gif" height="400"/>
+
 
 ## Getting started
 

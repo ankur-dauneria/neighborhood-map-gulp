@@ -53,6 +53,9 @@ Build is setup using gulp. Following steps to be executed in `neighborhood-map-g
 
 > `gulp default`
 
+
+Go to `localhost:3000`
+
 ## Tools used
 
 * Frontend: HTML, CSS, JS, Bootstrap 3 web framework

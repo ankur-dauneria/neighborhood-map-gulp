@@ -47,7 +47,7 @@ Go to `dest` folder and click `index.html` and open it in Google chrome web brow
 
 ## Build
 
-Build is setup using gulp. Following steps to be executed in `neighborhood-map-gulp`
+Build is setup using gulp. Following steps to be executed in `neighborhood-map-gulp` folder
 
 > `npm install --global gulp-cli`
 

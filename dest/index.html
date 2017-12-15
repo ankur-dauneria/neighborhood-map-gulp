@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Neighborhood Map App</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container bar1">
+        <nav class="navbar navbar-light bg-faded appName">
+            <h1 class="navbar-brand mb-0 appheading">Neighborhood Application</h1>
+        </nav>
+    </div>
+    <div class="container bar2">
+
+        <div class="row row-offcanvas row-offcanvas-right">
+
+            <div class="form-group col-md-4 col-xs-4 col-lg-3 sidebar-offcanvas">
+                <input type="text" class="form-control" data-bind="textInput: tag" id="myInput" placeholder="Search..">
+                <div class="options-box tagList" id="scroll-list">
+                    <ul class="list-group" id="myUL" data-bind="foreach: availableTags, visible: matchedTags().length <= 0">
+                        <li class="list-group-item" id="list-item" data-bind="text: name, click: $parent.setSelected"></li>
+                    </ul>
+                    <ul class="list-group" id="myUL" data-bind="foreach: matchedTags">
+                        <li class="list-group-item" id="list-item" data-bind="text: name, click: $parent.setSelected"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="button-map-grp">
+                <button type="button" class="pull-left btn btn-default visible-xs visible-sm button-map" data-toggle="offcanvas" aria-expanded="false" aria-controls="navbar">
+                            <i class="fa fa-navicon fa-lg"></i>
+                          </button>
+                <div id="map" class="col-md-8 col-xs-8 col-lg-9"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/lib/knockout-3.4.2.js"></script>
+    <script src="js/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=drawing&key=AIzaSyDG-bjQeXCn3Oyp2--Uu-FXaAJ2sz1ocpA&v=3&callback=initMap"></script>
+</body>
+
+</html>
+
+</html>

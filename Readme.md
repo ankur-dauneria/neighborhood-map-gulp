@@ -80,7 +80,7 @@ Please report it via Issues tab
 
 > W3Schools.com
 
-> getbotstrap.com
+> getbootstrap.com
 
 ## License
 

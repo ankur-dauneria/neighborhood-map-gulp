@@ -38,6 +38,18 @@ This full stack project can be started using
     cd neighborhood-map-gulp
 ```
 
+## Build
+
+Build is setup using gulp. Following steps to be executed in `neighborhood-map-gulp`
+
+> `npm install --global gulp-cli`
+
+> `gulp init`
+
+> `npm install --save gulp gulp-concat gulp-minify-css gulp-uglify browsr-sync`
+
+> `gulp default`
+
 ## Tools used
 
 * Frontend: HTML, CSS, JS, Bootstrap 3 web framework

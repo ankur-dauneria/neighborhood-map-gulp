@@ -36,7 +36,10 @@ This full stack project can be started using
 ```
     git clone https://github.com/ankur-dauneria/neighborhood-map-gulp.git
     cd neighborhood-map-gulp
+
 ```
+
+Go to `dest` folder and click `index.html`
 
 ## Build
 

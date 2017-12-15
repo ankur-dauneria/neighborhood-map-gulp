@@ -77,6 +77,8 @@ It is fully responsive single page JS application following MVVM model built usi
 
 > `index.html`: contains the HTML code of the web page.
 
+> `gulpfile.js`: build rules to setup th build.
+
 ## Found issue/Report new feature
 
 Please report it via Issues tab

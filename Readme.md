@@ -30,7 +30,7 @@
 
 ## Preview
 
-<img src="preview_nm.gif" height="400"/>
+<img src="preview_nm.gif" height="600"/>
 
 
 ## Getting started

@@ -39,7 +39,7 @@ This full stack project can be started using
 
 ```
 
-Go to `dest` folder and click `index.html`
+Go to `dest` folder and click `index.html` and open it in Google chrome web browser.
 
 ## Build
 

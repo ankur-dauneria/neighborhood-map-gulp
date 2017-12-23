@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
@@ -8,19 +10,19 @@ var browserSync = require('browser-sync').create();
 gulp.task('css', function() {
     gulp.src([
             'src/css/**/bootstrap.css',
-			'src/css/**/style.css',
-			'src/css/**/font-awesome.css'
+            'src/css/**/style.css',
+            'src/css/**/font-awesome.css'
         ])
         .pipe(minifyCSS())
         .pipe(gulp.dest('dest/css'))
-		.pipe(browserSync.stream());
+        .pipe(browserSync.stream());
 });
 
 gulp.task('js', function() {
     gulp.src([
             'src/js/**/bootstrap.js',
-			'src/js/**/knockout-3.4.2.js',
-			'src/js/**/map.js'
+            'src/js/**/knockout-3.4.2.js',
+            'src/js/**/map.js'
         ])
         .pipe(uglify())
         .pipe(gulp.dest('dest/js'));
@@ -47,32 +49,32 @@ gulp.task('html', function() {
         .pipe(gulp.dest('dest'));
 });
 
-gulp.task('js-watch', ['js'], function (done) {
+gulp.task('js-watch', ['js'], function(done) {
     browserSync.reload();
     done();
 });
 
-gulp.task('css-watch', ['css'], function (done) {
+gulp.task('css-watch', ['css'], function(done) {
     browserSync.reload();
     done();
 });
 
-gulp.task('image-watch', ['images'], function (done) {
+gulp.task('image-watch', ['images'], function(done) {
     browserSync.reload();
     done();
 });
 
-gulp.task('html-watch', ['html'], function (done) {
+gulp.task('html-watch', ['html'], function(done) {
     browserSync.reload();
     done();
 });
 
-gulp.task('font-watch', ['font'], function (done) {
+gulp.task('font-watch', ['font'], function(done) {
     browserSync.reload();
     done();
 });
 
-gulp.task('default', ['js', 'css', 'images','font', 'html'], function () {
+gulp.task('default', ['js', 'css', 'images', 'font', 'html'], function() {
 
     // Serve files from the root of this project
     browserSync.init({
@@ -86,6 +88,6 @@ gulp.task('default', ['js', 'css', 'images','font', 'html'], function () {
     gulp.watch("src/js/*.js", ['js-watch']);
     gulp.watch("src/css/**/*.css", ['css-watch']);
     gulp.watch("src/images/**/*", ['image-watch']);
-	gulp.watch("src/fonts/**/*", ['font-watch']);
-	gulp.watch("src/*.html", ['html-watch']);
+    gulp.watch("src/fonts/**/*", ['font-watch']);
+    gulp.watch("src/*.html", ['html-watch']);
 });

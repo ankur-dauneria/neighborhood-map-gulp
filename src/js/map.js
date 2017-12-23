@@ -189,18 +189,6 @@ var locations = [{
         "worship",
         "hindu"
     ],
-    name: "Chhatarpur Temple",
-    location: {
-        lat: 28.502406,
-        lng: 77.181041
-    }
-}, {
-    tag: [
-        "places",
-        "historical",
-        "worship",
-        "hindu"
-    ],
     name: "Laxminarayan Temple",
     location: {
         lat: 28.632685,
@@ -441,6 +429,7 @@ function displayMarkers(locationsToMark) {
             animation: google.maps.Animation.DROP,
             id: i
         });
+
         // Push the marker to our array of markers.
         markers.push(marker);
 
@@ -504,7 +493,11 @@ function load_content(map, marker, infowindow) {
         jQuery.ajax({
             url: wikiDataUrl,
             dataType: "jsonp",
-            success: callback
+            success: callback,
+            error: function(xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                alert(err.Message);
+            }
         });
     }
 
@@ -520,7 +513,11 @@ function load_content(map, marker, infowindow) {
             jQuery.ajax({
                 url: wikiDataUrl2,
                 dataType: "jsonp",
-                success: callback
+                success: callback,
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
+                }
             });
         }
 
@@ -530,58 +527,98 @@ function load_content(map, marker, infowindow) {
             // fetch heritage detais from data object
             var wikiClaimHeritage = Object.values(data.entities)[0].claims.P1435;
 
-            if (typeof(wikiClaimHeritage) != 'undefined') {
+            //P31
+            var wikiP31 = Object.values(data.entities)[0].claims.P31;
+            var wikiP31ClaimValues = Object.values(wikiP31)[0];
+            var wikiP31ClaimValueID = wikiP31ClaimValues.mainsnak.datavalue.value.id;
+            var wikiP31ClaimIDURL = 'https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=' + wikiP31ClaimValueID + '&sitefilter=enwiki&formatversion=2&format=json&callback=wikiCallback';
 
-                var wikiClaimValues = Object.values(wikiClaimHeritage)[0];
-                var wikiHeritageID = wikiClaimValues.mainsnak.datavalue.value.id;
+            function getP373(callback) {
+                jQuery.ajax({
+                    url: wikiP31ClaimIDURL,
+                    dataType: "jsonp",
+                    success: callback,
+                    error: function(xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        alert(err.Message);
+                    }
+                });
+            }
 
-                var wikiHeritageIDvalueURL = 'https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=' + wikiHeritageID + '&props=labels%7Cdescriptions&languages=&languagefallback=1&sitefilter=enwiki&formatversion=2&format=json&callback=wikiCallback';
+            getP373(function(data) {
+                clearTimeout(wikiRequestTimeout);
+                var wikiP373IDValue = Object.values(data.entities)[0].claims.P373[0].mainsnak.datavalue.value;
+                console.log(wikiP373IDValue);
 
-                function getHeritageIDStatus(callback) {
-                    jQuery.ajax({
-                        url: wikiHeritageIDvalueURL,
-                        dataType: "jsonp",
-                        success: callback
+                if (typeof(wikiClaimHeritage) != 'undefined') {
+
+                    var wikiClaimValues = Object.values(wikiClaimHeritage)[0];
+                    var wikiHeritageID = wikiClaimValues.mainsnak.datavalue.value.id;
+                    var wikiHeritageIDvalueURL = 'https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=' + wikiHeritageID + '&props=labels%7Cdescriptions&languages=&languagefallback=1&sitefilter=enwiki&formatversion=2&format=json&callback=wikiCallback';
+
+                    function getHeritageIDStatus(callback) {
+                        jQuery.ajax({
+                            url: wikiHeritageIDvalueURL,
+                            dataType: "jsonp",
+                            success: callback,
+                            error: function(xhr, status, error) {
+                                var err = eval("(" + xhr.responseText + ")");
+                                alert(err.Message);
+                            }
+                        });
+                    }
+
+                    getHeritageIDStatus(function(data) {
+
+                        clearTimeout(wikiRequestTimeout);
+                        // fetch heritage detais from data object
+                        var wikiHeritageIDValue = Object.values(data.entities)[0].labels.en.value;
+                        // Fetch the site photo from wikipedia
+                        jQuery.ajax({
+                            url: wikiUrl,
+                            dataType: "jsonp",
+                            success: function(response) {
+                                imageURL = Object.values(response.query.pages)[0].thumbnail.source;
+                                title = Object.values(response.query.pages)[0].title;
+                                heritageHTML = '<div class="heritage">' + wikiHeritageIDValue + '</div>';
+                                buildingCategoryP373 = '<div class="p373ID">' + "Site information: " + wikiP373IDValue + '</div>';
+                                wikipediaReference = '<div align="right" class="text-muted wikiref">powered by wikipedia</div>';
+                                innerHTML = '<div class="infoContainer"><img class="infoImage" src="' + imageURL + '"><h4 class="titleHeading">' + title + '</h4>' + heritageHTML + '<br>' + buildingCategoryP373 + wikipediaReference + '</div>';
+                                infowindow.setContent(innerHTML);
+                                infowindow.open(map, marker);
+                                clearTimeout(wikiRequestTimeout);
+                            },
+                            error: function(xhr, status, error) {
+                                var err = eval("(" + xhr.responseText + ")");
+                                alert(err.Message);
+                            }
+                        });
                     });
-                }
-
-                getHeritageIDStatus(function(data) {
-
-                    clearTimeout(wikiRequestTimeout);
-                    // fetch heritage detais from data object
-                    var wikiHeritageIDValue = Object.values(data.entities)[0].labels.en.value;
-                    // Fetch the site photo from wikipedia
+                } else {
+                    // Fetch the site photo from wikipedia for non-heritage sites
                     jQuery.ajax({
                         url: wikiUrl,
                         dataType: "jsonp",
                         success: function(response) {
                             imageURL = Object.values(response.query.pages)[0].thumbnail.source;
                             title = Object.values(response.query.pages)[0].title;
-                            heritageHTML = '<div class="heritage">' + wikiHeritageIDValue + '</div>';
+                            buildingCategoryP373 = '<div class="p373ID">' + "Site information: " + wikiP373IDValue + '</div>';
                             wikipediaReference = '<div align="right" class="text-muted wikiref">powered by wikipedia</div>';
-                            innerHTML = '<div class="infoContainer"><img class="infoImage" src="' + imageURL + '"><h4 class="titleHeading">' + title + '</h4>' + heritageHTML + wikipediaReference + '</div>';
+                            innerHTML = '<div class="infoContainer"><img class="infoImage" src="' + imageURL + '"><h4 class="titleHeading">' + title + '</h4>' + '<br>' + buildingCategoryP373 + wikipediaReference + '</div>';
                             infowindow.setContent(innerHTML);
                             infowindow.open(map, marker);
                             clearTimeout(wikiRequestTimeout);
+                        },
+                        error: function(xhr, status, error) {
+                            var err = eval("(" + xhr.responseText + ")");
+                            alert(err.Message);
                         }
                     });
-                });
-            } else {
-                // Fetch the site photo from wikipedia for non-heritage sites
-                jQuery.ajax({
-                    url: wikiUrl,
-                    dataType: "jsonp",
-                    success: function(response) {
-                        imageURL = Object.values(response.query.pages)[0].thumbnail.source;
-                        title = Object.values(response.query.pages)[0].title;
-                        wikipediaReference = '<div align="right" class="text-muted wikiref">powered by wikipedia</div>';
-                        innerHTML = '<div class="infoContainer"><img class="infoImage" src="' + imageURL + '"><h4 class="titleHeading">' + title + '</h4>' + wikipediaReference + '</div>';
-                        infowindow.setContent(innerHTML);
-                        infowindow.open(map, marker);
-                        clearTimeout(wikiRequestTimeout);
-                    }
-                });
-            }
+                }
+
+            });
+
+
 
         });
     });
@@ -616,6 +653,7 @@ function toggleBounce(marker) {
         marker.setAnimation(null);
     } else {
         marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function() { marker.setAnimation(null); }, 700 * 2);
     }
 }
 
@@ -626,3 +664,7 @@ $(document).ready(function() {
         $('.row-offcanvas').toggleClass('active')
     });
 });
+
+function errorHandling() {
+    alert("Google Maps has failed to load. Please check console logs.");
+}

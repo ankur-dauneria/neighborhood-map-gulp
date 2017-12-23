@@ -18,7 +18,7 @@
 
 > Its uses google maps to display the user choice locations over its.
 
-> Its uses third party (Wikipedia/Wikidata) api to get the data and display them inside the infowindow. Third party API are used to location photo and checks if the place is a designated heritage site.
+> Its uses third party (Wikipedia/Wikidata) api to get the data and display them inside the infowindow. Third party API are used to location photo and checks if the place is a designated heritage site. It presents site information of each site as per the category.
 
 > Filters locations on map both in list view and map markers as user types them
 
@@ -27,6 +27,8 @@
 > Filters locations on map and list view based on list of tags, other than just location names
 
 > Google map uses a custom style
+
+> Gulp driven build
 
 ## Preview
 

@@ -35,6 +35,8 @@
 
 > Gulp driven build
 
+> Travis ci integration
+
 ## Preview
 
 <img src="preview_nm.gif" height="600"/>

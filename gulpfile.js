@@ -9,6 +9,8 @@ var gulp = require('gulp'),
 
 var browserSync = require('browser-sync').create();
 
+// CSS task rule
+
 gulp.task('css', function() {
     gulp.src([
             'src/css/**/bootstrap.css',
@@ -20,6 +22,8 @@ gulp.task('css', function() {
         .pipe(browserSync.stream());
 });
 
+// JS task rule
+
 gulp.task('js', function() {
     gulp.src([
             'src/js/**/bootstrap.js',
@@ -30,6 +34,8 @@ gulp.task('js', function() {
         .pipe(gulp.dest('dest/js'));
 });
 
+// Images task rule
+
 gulp.task('images', function() {
     gulp.src([
             'src/images/**/*'
@@ -37,12 +43,16 @@ gulp.task('images', function() {
         .pipe(gulp.dest('dest/images'));
 });
 
+// Font task rule
+
 gulp.task('font', function() {
     gulp.src([
             'src/fonts/**/*'
         ])
         .pipe(gulp.dest('dest/fonts'));
 });
+
+// HTML task rule
 
 gulp.task('html', function() {
     gulp.src([

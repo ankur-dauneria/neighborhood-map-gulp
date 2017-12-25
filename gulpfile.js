@@ -61,25 +61,35 @@ gulp.task('html', function() {
         .pipe(gulp.dest('dest'));
 });
 
+// JS watch task
+
 gulp.task('js-watch', ['js'], function(done) {
     browserSync.reload();
     done();
 });
+
+// CSS watch task
 
 gulp.task('css-watch', ['css'], function(done) {
     browserSync.reload();
     done();
 });
 
+// image watch task
+
 gulp.task('image-watch', ['images'], function(done) {
     browserSync.reload();
     done();
 });
 
+// HTML watch task
+
 gulp.task('html-watch', ['html'], function(done) {
     browserSync.reload();
     done();
 });
+
+// Font watch task
 
 gulp.task('font-watch', ['font'], function(done) {
     browserSync.reload();

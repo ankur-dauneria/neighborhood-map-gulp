@@ -35,7 +35,7 @@
 
 > Gulp driven build
 
-> Travis ci integration
+> Travis continuous integration(ci) integration
 
 ## Preview
 

@@ -88,6 +88,8 @@ It is fully responsive single page JS application following MVVM model built usi
 
 > `gulpfile.js`: build rules to setup th build.
 
+> `.travis.yml`: Continuous integration
+
 ## Found issue/Report new feature
 
 Please report it via Issues tab

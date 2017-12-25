@@ -88,7 +88,7 @@ It is fully responsive single page JS application following MVVM model built usi
 
 > `gulpfile.js`: build rules to setup th build.
 
-> `.travis.yml`: Continuous integration
+> `.travis.yml`: Continuous integration configuration.
 
 ## Found issue/Report new feature
 

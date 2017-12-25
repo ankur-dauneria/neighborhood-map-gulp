@@ -1,3 +1,7 @@
+/*
+   Gulp configuration file
+*/
+
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),

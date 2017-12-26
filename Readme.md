@@ -15,7 +15,7 @@
   </a>
 </p>
 
-> Neighborhood Map Application is fully responsive single page Javascript application built over MVVM model using Knockout.JS library. The front-end was built using HTML, CSS and Bootstrap 3 framework. It incorporates a google map api and variety of data using Wikipedia API to display additional information like photos, heritage site status about the location, on the google map. Different locations are read from user provided JSON and displayed over the map. It uses Ajax to handle wikipedia/wikidata APIs to get the data to be displayed on the map. On UI, it filters the locations as user types them and displays accordingly on the map. A location infowindow can be clicked directly from marker or from list view. Project build set-up using Gulp and travis ci is used for continuous integration.
+> Neighborhood Map Application is fully responsive single page Javascript application built over MVVM model using Knockout.JS library. The front-end was built using HTML, CSS and Bootstrap 3 framework. It incorporates a google map api and variety of data using Wikipedia API to display additional information like photos, heritage site status about the location and site information as per site category, on the google map. Different locations are read from user provided JSON and displayed over the map. It uses Ajax to handle wikipedia/wikidata APIs to get the data to be displayed on the map. On UI, it filters the locations as user types them, draws a polygon and displays accordingly on the map. A location infowindow can be clicked directly from marker or from list view. Project build set-up using Gulp and travis ci is used for continuous integration.
 
 ## Features
 
@@ -35,7 +35,7 @@
 
 > Gulp driven build
 
-> Travis driven continuous integration(ci) integration
+> Travis driven continuous integration(ci)
 
 ## Preview
 

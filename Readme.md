@@ -44,6 +44,10 @@
 
 ## Getting started
 
+### Prerequisite
+
+Install `Node.js`.
+
 This full stack project can be started using
 
 ```

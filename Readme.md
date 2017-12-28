@@ -95,6 +95,8 @@ It is fully responsive single page JS application following MVVM model built usi
 
 > `.travis.yml`: Continuous integration configuration.
 
+> `package.json`: Gulp package related configuration file.
+
 ## Found issue/Report new feature
 
 Please report it via Issues tab

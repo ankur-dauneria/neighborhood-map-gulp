@@ -46,7 +46,7 @@
 
 ### Prerequisite
 
-Install `Node.js`.
+Install [Node.js](https://nodejs.org/en/).
 
 This full stack project can be started using
 
@@ -60,7 +60,7 @@ Go to `dest` folder and click `index.html` and open it in Google chrome web brow
 
 ## Build
 
-Build is setup using gulp. The `src` folder contains source code and `dest` folder contains the build code.
+Build is setup using gulp. The [src](src) folder contains source code and [dest](dest) folder contains the build code.
 Following steps to be executed in `neighborhood-map-gulp` folder
 
 > `npm install --global gulp-cli`
@@ -113,6 +113,8 @@ Please report it via Issues tab
 > [Knockout.js](http://knockoutjs.com/)
 
 > [Snazzy maps](https://snazzymaps.com/)
+
+> [Node js](https://nodejs.org/en/)
 
 ## License
 

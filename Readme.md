@@ -76,9 +76,9 @@ Go to `localhost:3000` in google chrome web browser
 
 ## Tools used
 
-* Frontend: HTML, CSS, JS, Bootstrap 3 web framework
-* JS Framework : Knockout.JS
-* Fonts: Font awesome, Google fonts
+* Frontend: HTML, CSS, JS, [Bootstrap 3 web framework](https://getbootstrap.com/)
+* JS Framework : [Knockout.JS](http://knockoutjs.com/)
+* Fonts: [Font awesome](http://fontawesome.io/), [Google fonts](https://fonts.google.com/)
 * Map style: [Snazzy maps](https://snazzymaps.com/)
 
 

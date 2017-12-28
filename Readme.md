@@ -92,7 +92,7 @@ It is fully responsive single page JS application following MVVM model built usi
 
 > [index.html](src/index.html) : contains the HTML code of the web page.
 
-> [gulpfile.js](gulpfile.js) : build rules to setup th build.
+> [gulpfile.js](gulpfile.js) : build rules to setup the build.
 
 > [.travis.yml](.travis.yml) : Continuous integration configuration.
 

@@ -109,6 +109,8 @@ Please report it via Issues tab
 
 > getbootstrap.com
 
+> [Knockout.js](http://knockoutjs.com/)
+
 ## License
 
 This project is licensed under [MIT License](license.md)

@@ -103,11 +103,11 @@ Please report it via Issues tab
 
 ## References
 
-> Stackoverflow.com
+> [Stackoverflow.com](https://Stackoverflow.com)
 
-> W3Schools.com
+> [W3Schools.com](https://W3Schools.com)
 
-> getbootstrap.com
+> [getbootstrap.com](https://getbootstrap.com/)
 
 > [Knockout.js](http://knockoutjs.com/)
 

@@ -78,7 +78,7 @@ Go to `localhost:3000` in google chrome web browser
 
 * Frontend: HTML, CSS, JS, Bootstrap 3 web framework
 * JS Framework : Knockout.JS
-* Fonts: Font awesome
+* Fonts: Font awesome, Google fonts
 
 
 ## Project structure

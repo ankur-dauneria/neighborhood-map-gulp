@@ -86,17 +86,17 @@ Go to `localhost:3000` in google chrome web browser
 
 It is fully responsive single page JS application following MVVM model built using knockout.js.
 
-> `map.js`: is the main JS file containing all javascript code. It contains code for wikipedia and wikidata api calls for fetch location photos and heritage status of a site.
+> [map.js](src/js/map.js) : is the main JS file containing all javascript code. It contains code for wikipedia and wikidata api calls for fetch location photos and heritage status of a site.
 
-> `style.css`: contains the CSS.
+> [style.css](src/css/style.css) : contains the CSS.
 
-> `index.html`: contains the HTML code of the web page.
+> [index.html](src/index.html) : contains the HTML code of the web page.
 
-> `gulpfile.js`: build rules to setup th build.
+> [gulpfile.js](gulpfile.js) : build rules to setup th build.
 
-> `.travis.yml`: Continuous integration configuration.
+> [.travis.yml](.travis.yml) : Continuous integration configuration.
 
-> `package.json`: Gulp package related configuration file.
+> [package.json](package.json) : Gulp package related configuration file.
 
 ## Found issue/Report new feature
 

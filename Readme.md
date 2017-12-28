@@ -19,7 +19,7 @@
 
 ## Features
 
-> Its fully responsive (NEXUS 5, iPad) single page JS application built using knockout.js
+> Its fully responsive (NEXUS 5, iPad) single page JS application built over MVVM model using knockout.js
 
 > Its uses google maps to display the user choice locations provided.
 

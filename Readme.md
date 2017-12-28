@@ -21,7 +21,7 @@
 
 > Its fully responsive (NEXUS 5, iPad) single page JS application built using knockout.js
 
-> Its uses google maps to display the user choice locations.
+> Its uses google maps to display the user choice locations provided.
 
 > Its uses third party (Wikipedia/Wikidata) api to get the data and display them inside the infowindow. Third party API are used to location photo and checks if the place is a designated heritage site. It presents site information of each site as per the category.
 

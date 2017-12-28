@@ -116,6 +116,8 @@ Please report it via Issues tab
 
 > [Node js](https://nodejs.org/en/)
 
+> [Travis CI](https://travis-ci.org/)
+
 ## License
 
 This project is licensed under [MIT License](license.md)

@@ -28,8 +28,6 @@ function initMap() {
     largeInfowindow = new google.maps.InfoWindow();
     var viewModel = new ViewModel;
 
-
-
     // Initialize the drawing manager.
     var drawingManager = new google.maps.drawing.DrawingManager({
         drawingMode: null,
@@ -338,9 +336,7 @@ function ViewModel() {
                 self.matchedTags.push(self.availableTags()[i]);
             }
         }
-        console.log(self.matchedTags().length);
     };
-
 
     // a location clicked in List View will trigger a click event on marker
     // so that click listener will listen and open the infowindow on Google Map
@@ -380,6 +376,11 @@ function ViewModel() {
                             self.matchedTags.push(self.availableTags()[i]);
                     }
                 }
+            }
+
+            if (self.matchedTags().length === 0) {
+                // display no markers and locations if nothing matches
+                self.matchedTags.push("");
             }
 
             if (self.matchedTags().length > 0) {
@@ -451,6 +452,15 @@ function displayMarkers(locationsToMark) {
     google.maps.event.addDomListener(window, 'resize', function() {
         map.fitBounds(bounds); // `bounds` is a `LatLngBounds` object
     });
+
+    map.addListener('center_changed', function() {
+        // 3 seconds after the center of the map has changed, pan back to the
+        // bound.
+        window.setTimeout(function() {
+            map.panTo(bounds.getCenter());
+        }, 3000);
+    });
+
 }
 
 
@@ -462,10 +472,7 @@ function populateInfoWindow(marker, infowindow) {
     if (infowindow.marker != marker) {
         infowindow.marker = marker;
 
-        // Click on marker and ajax call is fired and content is loaded
-        google.maps.event.addListener(marker, 'click', function() {
-            load_content(map, this, infowindow);
-        });
+        load_content(map, marker, infowindow);
 
         // Make sure the marker property is cleared if the infowindow is closed.
         infowindow.addListener('closeclick', function() {
@@ -660,9 +667,7 @@ function toggleBounce(marker) {
     }
 }
 
-
 $(document).ready(function() {
-
     $('[data-toggle="offcanvas"]').click(function() {
         $('.row-offcanvas').toggleClass('active')
     });

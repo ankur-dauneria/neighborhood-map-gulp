@@ -415,7 +415,6 @@ function ViewModel() {
 function displayMarkers(locationsToMark) {
 
     var bounds = new google.maps.LatLngBounds();
-
     // The following group uses the location array to create an array of markers on initialize.
     for (var i = 0; i < locationsToMark.length; i++) {
         // Get the position from the location array.
@@ -448,6 +447,10 @@ function displayMarkers(locationsToMark) {
     }
     // Extend the boundaries of the map for each marker
     map.fitBounds(bounds);
+
+    google.maps.event.addDomListener(window, 'resize', function() {
+        map.fitBounds(bounds); // `bounds` is a `LatLngBounds` object
+    });
 }
 
 
